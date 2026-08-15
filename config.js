@@ -1,4 +1,4 @@
 window.KAIDA_CONFIG = {
-  API_URL: "https://script.google.com/macros/s/AKfycbw3xhGjpDaMFsjOsk59T9YMKqBClclfeQ8qgxrN0R0cRmOwuVcJiVLf2ZX8aKsS50n27A/exec",
+  API_URL: "https://script.google.com/macros/s/AKfycbynIz1L_rYoIZlUNXqheB8NHucFlYtO_mB-_O5zHQXkXonpiqKCFKC52h92np4_MZKnfw/exec",
   SITE_URL: "https://kaidausa.github.io"
 };
