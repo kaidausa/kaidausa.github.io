@@ -1,4 +1,4 @@
 window.KAIDA_CONFIG = {
-  API_URL: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
+  API_URL: "https://script.google.com/macros/s/AKfycbxsyPMdYlssz8rWB3wrSZNSkN97ApBuQzcc8yx8cYRWRzUY_RpYFWrJE_z8hCoU6AGmSA/exec",
   SITE_URL: "https://kaidausa.github.io"
 };
