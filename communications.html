@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#0b6b3a">
+  <title>KAIDA-USA | Member Communications</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .comms-shell{max-width:1200px;margin:0 auto;padding:28px 18px 60px}
+    .comms-header{display:flex;gap:18px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:22px}
+    .comms-header h1{margin:.2rem 0 .4rem}
+    .admin-box,.toolbar,.stats-grid,.table-card,.batch-card{background:#fff;border:1px solid #dfe7e2;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.05)}
+    .admin-box{padding:16px;min-width:310px}
+    .inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .inline input,.toolbar select,.toolbar input,.message-editor textarea{padding:11px 12px;border:1px solid #cfd9d3;border-radius:10px;font:inherit}
+    .inline input{min-width:220px;flex:1}
+    .toolbar{padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+    .toolbar .grow{flex:1;min-width:230px}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;overflow:hidden;margin-bottom:18px;background:#dfe7e2}
+    .stat{background:#fff;padding:18px}
+    .stat .num{font-size:1.7rem;font-weight:800;color:#0b6b3a}
+    .stat .label{font-size:.9rem;color:#5c6c63;margin-top:4px}
+    .table-card{overflow:hidden}
+    .table-wrap{overflow:auto}
+    table{width:100%;border-collapse:collapse;min-width:1080px}
+    th,td{padding:11px 10px;border-bottom:1px solid #edf1ee;text-align:left;vertical-align:top}
+    th{background:#f5f8f6;font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;position:sticky;top:0;z-index:1}
+    .money{font-variant-numeric:tabular-nums;font-weight:700}
+    .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#eef6f1;color:#0b6b3a;font-size:.78rem;font-weight:700}
+    .actions{display:flex;gap:6px;flex-wrap:wrap}
+    button,.action-link{border:0;border-radius:9px;padding:9px 11px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .primary{background:#0b6b3a;color:#fff}.secondary{background:#eef6f1;color:#0b6b3a}.muted{background:#f2f3f2;color:#38453e}.danger{background:#fff0f0;color:#9d2020}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .notice{margin:12px 0;padding:11px 13px;border-radius:10px}.notice-info{background:#eef5ff}.notice-success{background:#edf8f0}.notice-error{background:#fff0f0}.notice-warning{background:#fff8e5}
+    .batch-card{margin-top:18px;padding:18px}.batch-card[hidden]{display:none}
+    .batch-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .message-editor textarea{width:100%;min-height:180px;resize:vertical;margin:12px 0}
+    .small{font-size:.86rem;color:#65746c}.hidden{display:none!important}
+    @media(max-width:800px){.stats-grid{grid-template-columns:1fr 1fr}.admin-box{width:100%}}
+    @media(max-width:520px){.stats-grid{grid-template-columns:1fr}.comms-shell{padding:18px 10px 40px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="KAIDA-USA Home">
+        <img src="assets/img/kaida-logo.png" alt="KAIDA-USA logo" class="brand-logo">
+        <div class="brand-text"><strong>KAIDA-USA</strong><span>Member Communications</span></div>
+      </a>
+      <nav class="main-nav"><a href="index.html">Home</a><a href="member-lookup.html">Member Lookup</a></nav>
+    </div>
+  </header>
+
+  <main class="comms-shell">
+    <section class="comms-header">
+      <div>
+        <p class="eyebrow">Finance & Membership Team</p>
+        <h1>Communication Center</h1>
+        <p>Prepare personalized WhatsApp or text-message reminders. A member can be contacted multiple times; every contact is logged separately.</p>
+      </div>
+      <div class="admin-box">
+        <strong>Admin access</strong>
+        <p class="small">Enter the communications key stored in Apps Script Properties. The key is kept only for this browser session.</p>
+        <div class="inline">
+          <input id="adminKey" type="password" autocomplete="current-password" placeholder="Communications admin key">
+          <button id="connectBtn" class="primary" type="button">Load Queue</button>
+        </div>
+        <div id="accessMessage" class="notice notice-info" hidden></div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="stats-grid">
+        <div class="stat"><div id="statOutstanding" class="num">0</div><div class="label">Members outstanding</div></div>
+        <div class="stat"><div id="statBalance" class="num">$0</div><div class="label">Total outstanding</div></div>
+        <div class="stat"><div id="statNever" class="num">0</div><div class="label">Never contacted</div></div>
+        <div class="stat"><div id="statSelected" class="num">0</div><div class="label">Selected for batch</div></div>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchBox" class="grow" type="search" placeholder="Search name, phone or member ID">
+        <select id="debtFilter">
+          <option value="all">All outstanding</option>
+          <option value="registration">Registration only</option>
+          <option value="dues">Dues only</option>
+          <option value="both">Registration + dues</option>
+        </select>
+        <select id="contactFilter">
+          <option value="all">All contact history</option>
+          <option value="never">Never contacted</option>
+          <option value="followup">Contacted before</option>
+        </select>
+        <button id="refreshBtn" class="secondary" type="button">Refresh</button>
+        <button id="selectVisibleBtn" class="secondary" type="button">Select visible</button>
+        <button id="clearSelectedBtn" class="muted" type="button">Clear selection</button>
+        <button id="startBatchBtn" class="primary" type="button">Start selected batch</button>
+      </div>
+
+      <div id="mainMessage" class="notice notice-info" hidden></div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th><input id="selectAll" type="checkbox" aria-label="Select all visible"></th>
+              <th>Member</th><th>Phone</th><th>Registration</th><th>Dues</th><th>Total</th><th>Request</th><th>Last Contact</th><th>#</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="queueBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <section id="batchCard" class="batch-card" hidden>
+        <div class="batch-top">
+          <div><p class="eyebrow">Batch assistant</p><h2 id="batchTitle">Member 1 of 1</h2></div>
+          <button id="closeBatchBtn" class="muted" type="button">Close</button>
+        </div>
+        <div id="batchMember"></div>
+        <div class="message-editor"><textarea id="batchMessage" aria-label="Message to send"></textarea></div>
+        <div class="actions">
+          <a id="batchWhatsApp" class="action-link primary" target="_blank" rel="noopener">Open WhatsApp</a>
+          <a id="batchSms" class="action-link secondary">Open Text Message</a>
+          <button id="logWhatsAppBtn" class="secondary" type="button">Log WhatsApp & Next</button>
+          <button id="logSmsBtn" class="secondary" type="button">Log Text & Next</button>
+          <button id="skipBtn" class="muted" type="button">Skip</button>
+        </div>
+        <p class="small">Opening WhatsApp or SMS prepares the message. You still press Send in WhatsApp or your messaging app. Use “Log … & Next” after you send.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/communications.js"></script>
+</body>
+</html>

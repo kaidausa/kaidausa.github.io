@@ -143,8 +143,21 @@
     const registerForm = qs("registerForm");
     if (registerForm) registerForm.addEventListener("submit", handleRegistration);
 
-    document.querySelectorAll("[data-registration-fee]").forEach(el => el.textContent = money(cfg.REGISTRATION_FEE || 50));
-    document.querySelectorAll("[data-monthly-dues]").forEach(el => el.textContent = money(cfg.MONTHLY_DUES || 10));
+    // Fee amounts and collection settings come from the private Google Sheet.
+    // This keeps the website, member calculations, and reminder messages in sync.
+    (async () => {
+      try {
+        const data = await callApi("getPublicSettings");
+        const s = data.settings || {};
+        document.querySelectorAll("[data-registration-fee]").forEach(el => el.textContent = money(s.registrationFee));
+        document.querySelectorAll("[data-monthly-dues]").forEach(el => el.textContent = money(s.monthlyDues));
+        document.querySelectorAll("[data-organization]").forEach(el => el.textContent = s.organization || "KAIDA-USA");
+      } catch (err) {
+        console.warn("Could not load KAIDA settings:", err.message);
+        document.querySelectorAll("[data-registration-fee]").forEach(el => el.textContent = "See current fee");
+        document.querySelectorAll("[data-monthly-dues]").forEach(el => el.textContent = "See current dues");
+      }
+    })();
   });
 
   window.KAIDA = { normalizePhone, callApi, money };
