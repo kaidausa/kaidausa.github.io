@@ -1,0 +1,6 @@
+# Never commit member/private data
+private-data/
+*.csv
+.env
+.env.*
+.DS_Store
