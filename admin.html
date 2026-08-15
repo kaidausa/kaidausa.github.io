@@ -1,4 +1,41 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Administrator Guide | KAIDA-USA</title><meta property="og:type" content="website"><meta property="og:site_name" content="KAIDA-USA"><meta property="og:title" content="KAIDA-USA | Membership & Dues"><meta property="og:description" content="Kailahun Descendants Association USA membership, registration and dues portal."><meta property="og:url" content="https://kaida.github.io/"><meta property="og:image" content="https://kaida.github.io/assets/img/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="KAIDA-USA membership and dues portal"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="KAIDA-USA | Membership & Dues"><meta name="twitter:description" content="Kailahun Descendants Association USA membership, registration and dues portal."><meta name="twitter:image" content="https://kaida.github.io/assets/img/og-image.png"><link rel="icon" href="assets/img/kaida-logo.png"><link rel="stylesheet" href="assets/css/styles.css"></head><body>
+<!doctype html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Administrator Guide | KAIDA-USA</title>
+  <meta name="description" content="KAIDA-USA administrator guide for the private Google Sheets and Apps Script membership and dues system.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#0b6b3a">
+  <meta name="application-name" content="KAIDA-USA">
+  <meta name="apple-mobile-web-app-title" content="KAIDA-USA">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://kaida.github.io/admin.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph: Facebook, WhatsApp, LinkedIn, iMessage and other social previews -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KAIDA-USA">
+  <meta property="og:title" content="Administrator Guide | KAIDA-USA">
+  <meta property="og:description" content="KAIDA-USA administrator guide for the private Google Sheets and Apps Script membership and dues system.">
+  <meta property="og:url" content="https://kaida.github.io/admin.html">
+  <meta property="og:image" content="https://kaida.github.io/assets/img/og-image.png">
+  <meta property="og:image:secure_url" content="https://kaida.github.io/assets/img/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KAIDA-USA — Kailahun Descendants Association USA">
+
+  <!-- X / Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Administrator Guide | KAIDA-USA">
+  <meta name="twitter:description" content="KAIDA-USA administrator guide for the private Google Sheets and Apps Script membership and dues system.">
+  <meta name="twitter:image" content="https://kaida.github.io/assets/img/og-image.png">
+  <meta name="twitter:image:alt" content="KAIDA-USA — Kailahun Descendants Association USA">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head><body>
 <nav class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/img/kaida-logo.png" alt="KAIDA-USA logo"><span>KAIDA-USA<small>Administrator Guide</small></span></a><a class="btn btn-outline" href="index.html">Home</a></div></nav>
 <section><div class="container"><div class="section-head"><span class="eyebrow">Finance & Membership</span><h2>Private administration stays in Google Sheets</h2><p>This GitHub Pages site is intentionally public-only. Do not put member phone numbers, dues balances, payment references, or a password-protected “admin database” in the repository.</p></div><div class="cards"><div class="card"><h3>1. Members</h3><p>Maintain names, town, chiefdom, WhatsApp number, member ID, dues start month, and secure access token in the private Members sheet.</p></div><div class="card"><h3>2. Payments</h3><p>Review submitted payment confirmations. Change Status from PENDING to VERIFIED only after confirming receipt.</p></div><div class="card"><h3>3. WhatsApp Queue</h3><p>Use the custom KAIDA menu in Google Sheets to rebuild personalized reminders and secure portal links.</p></div></div><div class="panel" style="margin-top:1.2rem"><h3>Fee rules</h3><p><strong>Registration fee:</strong> <span data-reg-fee>$50</span><br><strong>Monthly dues:</strong> <span data-monthly-dues>$10</span></p><p class="hint">The backend calculates expected dues by month. These values can be changed in the Settings sheet without changing the website code.</p></div></div></section>
 <footer class="footer"><div class="container small">Never commit the private member CSV or Google Sheet export to GitHub.</div></footer><script src="config.js"></script><script src="assets/js/app.js"></script></body></html>
