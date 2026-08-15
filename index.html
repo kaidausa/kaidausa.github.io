@@ -1,83 +1,42 @@
-<!doctype html><html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<section class="membership-access">
+  <div class="container">
 
-  <title>KAIDA-USA | Kailahun Descendants Association USA</title>
+    <div class="section-heading">
+      <p class="eyebrow">KAIDA-USA Membership</p>
+      <h2>Manage Your Membership</h2>
+      <p>
+        Existing members can look up their account using their phone number.
+        New members can register below.
+      </p>
+    </div>
 
-  <meta
-    name="description"
-    content="Official KAIDA-USA membership, registration and dues portal for the Kailahun Descendants Association USA."
-  >
+    <div class="card-grid">
 
-  <link rel="canonical" href="https://kaidausa.github.io/">
+      <article class="card">
+        <h3>Existing Member</h3>
+        <p>
+          Look up your KAIDA-USA membership using the phone number
+          currently associated with your account.
+        </p>
 
-  <!-- Open Graph: WhatsApp, Facebook, LinkedIn, iMessage -->
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="KAIDA-USA">
+        <a class="btn btn-primary" href="member-lookup.html">
+          Look Up My Membership
+        </a>
+      </article>
 
-  <meta
-    property="og:title"
-    content="KAIDA-USA | Kailahun Descendants Association USA"
-  >
+      <article class="card">
+        <h3>New Member</h3>
+        <p>
+          If you are not yet registered with KAIDA-USA, create a new
+          membership record.
+        </p>
 
-  <meta
-    property="og:description"
-    content="Unity • Heritage • Development. Official membership, registration and dues portal for KAIDA-USA."
-  >
+        <a class="btn btn-secondary" href="register.html">
+          Register as a New Member
+        </a>
+      </article>
 
-  <meta property="og:url" content="https://kaidausa.github.io/">
+    </div>
 
-  <meta
-    property="og:image"
-    content="https://kaidausa.github.io/assets/img/og-image.png"
-  >
-
-  <meta
-    property="og:image:secure_url"
-    content="https://kaidausa.github.io/assets/img/og-image.png"
-  >
-
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <meta
-    property="og:image:alt"
-    content="KAIDA-USA - Kailahun Descendants Association USA"
-  >
-
-  <!-- X / Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta
-    name="twitter:title"
-    content="KAIDA-USA | Kailahun Descendants Association USA"
-  >
-
-  <meta
-    name="twitter:description"
-    content="Unity • Heritage • Development. Official membership, registration and dues portal for KAIDA-USA."
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://kaidausa.github.io/assets/img/og-image.png"
-  >
-
-  <meta
-    name="twitter:image:alt"
-    content="KAIDA-USA - Kailahun Descendants Association USA"
-  >
-
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-<div class="topbar"><div class="container"><span>United by heritage · Committed to community</span><span>Registration $50 · Monthly dues $10</span></div></div>
-<nav class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/img/kaida-logo.png" alt="KAIDA-USA logo"><span>KAIDA-USA<small>Kailahun Descendants Association USA</small></span></a><button id="menuBtn" class="btn btn-outline menu-btn">Menu</button><div id="navLinks" class="nav-links"><a href="#about">About</a><a href="#register">Register</a><a href="portal.html">Member Portal</a><a href="admin.html">Admin Guide</a></div></div></nav>
-<header class="hero"><div class="container hero-grid"><div><span class="eyebrow">Kailahun District · Sierra Leone</span><h1>Membership and dues, made simple.</h1><p>Register with KAIDA-USA, confirm payments, and securely view your current registration and monthly dues balance from one place.</p><div class="hero-actions"><a class="btn btn-primary" href="portal.html">Open Member Portal</a><a class="btn btn-blue" href="#register">Register / Update Details</a></div><div class="fee-strip"><div class="fee"><span>Registration</span><strong data-reg-fee>$50</strong></div><div class="fee"><span>Monthly dues</span><strong data-monthly-dues>$10</strong></div><div class="fee"><span>Payment status</span><strong>Tracked</strong></div></div></div><div class="hero-card"><img src="assets/img/kaida-logo.png" alt="KAIDA-USA emblem"><p class="small">Serving descendants and friends of the whole Kailahun District.</p></div></div></header>
-<section id="about"><div class="container"><div class="section-head"><h2>One system for KAIDA membership</h2><p>The public website does not publish the membership database. Member records and payment verification remain in the private Google Sheet backend.</p></div><div class="cards"><div class="card"><div class="icon">01</div><h3>Secure member links</h3><p>Each member receives a unique access link by WhatsApp to view only their own balance and verified payment history.</p></div><div class="card"><div class="icon">02</div><h3>Payment confirmation</h3><p>Members submit the amount, payment type, method, and transaction reference. KAIDA Finance verifies it before balances update.</p></div><div class="card"><div class="icon">03</div><h3>WhatsApp ready</h3><p>Finance can generate personalized reminder links using standardized international phone numbers.</p></div></div></div></section>
-<section id="register"><div class="container portal"><div><div class="section-head"><h2>Join or update your KAIDA record</h2><p>Use this form if you are a new member or if your name, phone number, town, or chiefdom needs correction.</p></div><div class="admin-box"><strong>Privacy:</strong> Do not enter card or bank credentials here. Payments should be made only through KAIDA's approved payment channels.</div></div><div class="panel"><form id="registrationForm" class="form-grid"><div id="registrationNotice" class="notice hidden"></div><div class="field"><label>Full name</label><input name="name" required autocomplete="name"></div><div class="field"><label>WhatsApp phone number</label><input name="phone" required placeholder="+13015551234" autocomplete="tel"><div class="hint">Include country code.</div></div><div class="field"><label>Town</label><input name="town"></div><div class="field"><label>Chiefdom</label><input name="chiefdom"></div><div class="field"><label>Email (optional)</label><input name="email" type="email" autocomplete="email"></div><button class="btn btn-primary" type="submit">Submit Registration</button></form></div></div></section>
-<footer class="footer"><div class="container footer-grid"><div><strong>KAIDA-USA</strong><p class="small">Kailahun Descendants Association USA. Membership and dues portal.</p></div><div><a href="portal.html">Member Portal</a><br><a href="admin.html">Administrator Setup</a></div></div></footer>
-<script src="config.js"></script><script src="assets/js/app.js"></script></body></html>
+  </div>
+</section>
